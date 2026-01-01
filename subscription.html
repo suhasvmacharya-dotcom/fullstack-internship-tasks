@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tweet Subscription</title>
+</head>
+<body>
+
+<h2>Select Subscription Plan</h2>
+
+<select id="plan">
+  <option value="free">Free - ₹0 (1 Tweet)</option>
+  <option value="bronze">Bronze - ₹100 (3 Tweets)</option>
+  <option value="silver">Silver - ₹300 (5 Tweets)</option>
+  <option value="gold">Gold - ₹1000 (Unlimited)</option>
+</select>
+
+<br><br>
+<input type="email" id="email" placeholder="Enter Email" />
+
+<br><br>
+<button onclick="payNow()">Proceed to Pay</button>
+
+<p id="msg"></p>
+
+<script src="payment.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi Language + OTP</title>
+  <link rel="stylesheet" href="styles.CSS">
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="welcomeText"></h1>
+
+    <label id="langLabel" for="languageSelector"></label>
+    <select id="languageSelector">
+      <option value="en">English</option>
+      <option value="es">Spanish</option>
+      <option value="hi">Hindi</option>
+      <option value="pt">Portuguese</option>
+      <option value="zh">Chinese</option>
+      <option value="fr">French</option>
+    </select>
+
+    <div id="authSection" class="hidden">
+      <label id="contactLabel" for="contactInput"></label>
+      <input id="contactInput" type="text" />
+      <button id="sendOTPBtn"></button>
+    </div>
+
+    <div id="otpSection" class="hidden">
+      <input id="otpInput" type="text" placeholder="OTP" />
+      <button id="verifyBtn"></button>
+    </div>
+
+    <div id="successMsg" class="hidden">Verified successfully!</div>
+    <div id="errorMsg" class="hidden">Incorrect OTP!</div>
+  </div>
+
+  <script src="translations.js"></script>
+  <script src="scripts.js"></script>
+
+</body>
+</html>

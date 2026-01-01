@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tweet Subscription System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Tweet Subscription Plans</h1>
+
+<div class="plans">
+    <div class="plan">
+        <h2>Free</h2>
+        <p class="price">₹0</p>
+        <p>1 Tweet</p>
+        <button onclick="subscribe('Free', 0, 1)">Apply</button>
+    </div>
+
+    <div class="plan">
+        <h2>Bronze</h2>
+        <p class="price">₹100 / month</p>
+        <p>3 Tweets</p>
+        <button onclick="subscribe('Bronze', 100, 3)">Pay & Apply</button>
+    </div>
+
+    <div class="plan">
+        <h2>Silver</h2>
+        <p class="price">₹300 / month</p>
+        <p>5 Tweets</p>
+        <button onclick="subscribe('Silver', 300, 5)">Pay & Apply</button>
+    </div>
+
+    <div class="plan">
+        <h2>Gold</h2>
+        <p class="price">₹1000 / month</p>
+        <p>Unlimited Tweets</p>
+        <button onclick="subscribe('Gold', 1000, 'Unlimited')">Pay & Apply</button>
+    </div>
+</div>
+
+<div class="status" id="status">
+    <strong>Status:</strong> Waiting for user action.
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
