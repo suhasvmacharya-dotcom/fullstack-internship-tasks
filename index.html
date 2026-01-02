@@ -2,42 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f6f8;
+      background: #f2f2f2;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
-    .login-box {
-      background: #ffffff;
+    .box {
+      background: white;
       padding: 25px;
-      width: 320px;
+      width: 300px;
+      text-align: center;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    input {
+    input, button {
       width: 100%;
       padding: 10px;
-      margin: 10px 0;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+      margin: 8px 0;
     }
     button {
-      width: 100%;
-      padding: 10px;
       background: #007bff;
-      color: #fff;
+      color: white;
       border: none;
-      border-radius: 4px;
       cursor: pointer;
     }
     button:hover {
@@ -47,30 +38,49 @@
 </head>
 <body>
 
-  <div class="login-box">
-    <h2>Login</h2>
+<div class="box" id="loginBox">
+  <h2>Login</h2>
+  <input type="email" id="email" placeholder="Enter email" required>
+  <input type="password" id="password" placeholder="Enter password" required>
+  <button onclick="login()">Login</button>
+</div>
 
-    <form onsubmit="loginUser(event)">
-      <input type="email" id="email" placeholder="Enter email" required>
-      <button type="submit">Login</button>
-    </form>
-  </div>
+<div class="box" id="dashboard" style="display:none;">
+  <h2>Dashboard</h2>
+  <p id="userEmail"></p>
+  <button onclick="logout()">Logout</button>
+</div>
 
-  <script>
-    function loginUser(e) {
-      e.preventDefault();
+<script>
+  // Auto login check
+  if (localStorage.getItem("loggedInUser")) {
+    showDashboard();
+  }
 
-      const email = document.getElementById("email").value;
+  function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-      // IDEA 4: HARDCODED LOGIN
-      if (email === "intern@gmail.com") {
-        alert("Login Successful");
-        window.location.href = "dashboard.html";
-      } else {
-        alert("Invalid login. Use intern@gmail.com");
-      }
+    if (email && password) {
+      localStorage.setItem("loggedInUser", email);
+      showDashboard();
+    } else {
+      alert("Please enter email and password");
     }
-  </script>
+  }
+
+  function showDashboard() {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+    document.getElementById("userEmail").innerText =
+      "Logged in as: " + localStorage.getItem("loggedInUser");
+  }
+
+  function logout() {
+    localStorage.removeItem("loggedInUser");
+    location.reload();
+  }
+</script>
 
 </body>
 </html>
